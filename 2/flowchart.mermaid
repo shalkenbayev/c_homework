@@ -13,9 +13,9 @@ flowchart TD
     CheckODZ -- "Да" --> CalcSum["Вычисление суммы n=1..4 (5^n итерационно)"]
     
     CalcSum --> CalcFinal["Вычисление f(x)"]
-    CalcFinal --> CheckOverflow{"f(x) > 10^6?"}
+    CalcFinal --> CheckOverflow{"|f(x)| > 10^6?"}
     
-    CheckOverflow -- "Да" --> PrintOverflow["Вывод x, f(x) = '*'"]
+    CheckOverflow -- "Да" --> PrintOverflow["Вывод x, f(x) = 'переполн.'"]
     CheckOverflow -- "Нет" --> PrintResult["Вывод x, f(x)"]
     
     PrintUndef --> NextX

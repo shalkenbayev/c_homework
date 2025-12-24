@@ -18,54 +18,10 @@
 
 ## Блок-схемы логики
 
-[Блок-схема](flowchart.mermaid)
+## Блок-схемы логики
 
-````carousel
-```mermaid
-graph TD
-    Start([Начало]) --> Input[/Ввод x, a, b/]
-    Input --> ODZ1{x >= 7?}
-    ODZ1 -- Да --> Error1[/Ошибка: Не определено/]
-    Error1 --> End([Конец])
-    ODZ1 -- Нет --> Map[Код диапазона x]
-    Map --> Switch{Switch Код}
-    Switch -- 1: x < 4 --> Calc1[f = cos x]
-    Switch -- 2: x = 4 --> Calc2[f = x^3 - bx + 1]
-    Switch -- 3: 4 < x < 7 --> ODZ2{ax < 0?}
-    ODZ2 -- Да --> Error2[/Ошибка: Отриц. корень/]
-    Error2 --> End
-    ODZ2 -- Нет --> Calc3[f = sqrt ax]
-    Calc1 --> Success[/Вывод f_x/]
-    Calc2 --> Success
-    Calc3 --> Success
-    Success --> End
-```
-<!-- slide -->
-```mermaid
-graph TD
-    Start([Начало]) --> Input[/Ввод x, a, b/]
-    Input --> ODZ1{x >= 7?}
-    ODZ1 -- Да --> Err1[error = 1]
-    ODZ1 -- Нет --> Map[Код диапазона x]
-    Map --> Switch{Switch Код}
-    Err1 --> Final{ошибка?}
-    Switch -- 1 --> Calc1[f = cos x]
-    Switch -- 2 --> Calc2[f = x^3 - bx + 1]
-    Switch -- 3 --> ODZ2{ax < 0?}
-    ODZ2 -- Да --> Err2[error = 2]
-    ODZ2 -- No --> Calc3[f = sqrt ax]
-    Calc1 --> Final
-    Calc2 --> Final
-    Err2 --> Final
-    Calc3 --> Final
-    Final -- error=0 --> OutS[/Вывод f_x/]
-    Final -- error=1 --> OutE1[/Ошибка ОДЗ/]
-    Final -- error=2 --> OutE2[/Ошибка Корня/]
-    OutS --> End([Конец])
-    OutE1 --> End
-    OutE2 --> End
-```
-````
+- [Блок-схема Алгоритма 1 (Немедленная ошибка)](flowchart_alg1.mermaid)
+- [Блок-схема Алгоритма 2 (Отложенная ошибка)](flowchart_alg2.mermaid)
 
 ## Результаты проверки
 
