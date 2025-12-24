@@ -1,0 +1,24 @@
+graph TD
+    Start([Начало]) --> Input[Ввод a, b, x]
+    Input --> CheckDomain{x >= 7?}
+    CheckDomain -- Да --> DomainError[Ошибка: Область определения]
+    DomainError --> End([Конец])
+    
+    CheckDomain -- Нет --> CheckBranch1{x < 4?}
+    CheckBranch1 -- Да --> CalcBranch1[f = cos x]
+    CalcBranch1 --> Output[Вывод f]
+    
+    CheckBranch1 -- Нет --> CheckBranch2{x == 4?}
+    CheckBranch2 -- Да --> CalcBranch2[f = x^3 - bx + 1]
+    CalcBranch2 --> Output
+    
+    CheckBranch2 -- Нет --> CheckBranch3{4 < x < 7?}
+    CheckBranch3 -- Да --> CheckSqrt{ax < 0?}
+    CheckSqrt -- Да --> SqrtError[Ошибка: Отрицательный корень]
+    SqrtError --> End
+    
+    CheckSqrt -- Нет --> CalcBranch3[f = sqrt ax]
+    CalcBranch3 --> Output
+    
+    CheckBranch3 -- Нет --> End
+    Output --> End
