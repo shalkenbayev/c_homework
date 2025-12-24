@@ -79,35 +79,6 @@ gcc variant16.c -o variant16 -lm
 
 ## Блок-схема алгоритма
 
-```mermaid
-flowchart TD
-    Start(["Начало"]) --> Input["Ввод x1, x2, h"]
-    Input --> ValidInput{"Ввод корректен? (h > 0 и x1 <= x2)"}
-    ValidInput -- "Нет" --> Input
-    ValidInput -- "Да" --> InitX["x = x1, colCount = 0"]
-    
-    InitX --> LoopX{"x <= x2?"}
-    LoopX -- "Нет" --> End(["Конец"])
-    
-    LoopX -- "Да" --> CheckODZ{"Проверка ОДЗ: x > 0, x != 1, x != 7, |x-7| >= 1"}
-    
-    CheckODZ -- "Нет" --> PrintUndef["Вывод x, f(x) = 'не опр.'"]
-    CheckODZ -- "Да" --> CalcSum["Вычисление суммы n=1..4 (5^n итерационно)"]
-    
-    CalcSum --> CalcFinal["Вычисление f(x)"]
-    CalcFinal --> CheckOverflow{"f(x) > 10^6?"}
-    
-    CheckOverflow -- "Да" --> PrintOverflow["Вывод x, f(x) = '*'"]
-    CheckOverflow -- "Нет" --> PrintResult["Вывод x, f(x)"]
-    
-    PrintUndef --> NextX
-    PrintOverflow --> NextX
-    PrintResult --> NextX
-    
-    NextX["x = x + h, colCount++"] --> TableFormat{"colCount % 3 == 0?"}
-    TableFormat -- "Да" --> NewLine["Переход на новую строку"]
-    TableFormat -- "Нет" --> LoopX
-    NewLine --> LoopX
-```
+[Блок-схема](flowchart.mermaid)
 
 Проектирование алгоритма также задокументировано в [Плане реализации](file:///Users/ruslanschalkenbajew/.gemini/antigravity/brain/f529f160-a2ba-44f4-8771-f87dabdc3b68/implementation_plan.md).

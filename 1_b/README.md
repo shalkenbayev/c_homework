@@ -18,6 +18,8 @@
 
 ## Блок-схемы логики
 
+[Блок-схема](flowchart.mermaid)
+
 ````carousel
 ```mermaid
 graph TD
